@@ -1,4 +1,4 @@
-import { equal } from 'assert';
+import { deepEqual } from 'assert';
 import importListFromString from './index';
 
 const input = `
@@ -7,7 +7,7 @@ import local from './local';
 `;
 
 it('should importListFromString', () =>
-  equal(importListFromString('input'), ['out', './local']));
+  deepEqual(importListFromString(input), ['out', './local']));
 
 it('should importListFromString invalid input', () =>
-  equal(importListFromString(), undefined));
+  deepEqual(importListFromString(), undefined));
