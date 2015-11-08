@@ -1,6 +1,6 @@
 {
   "name": "import-list-from-string",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "get list of es2015 imports from string",
   "main": "index.es5.js",
   "scripts": {
