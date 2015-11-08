@@ -14,30 +14,26 @@
 ## Usage
 
 ```js
-import importListFromString from 'import-list-from-string';
+import importList from 'import-list-from-string';
 
-importListFromString('unicorns'); // unicorns
+const input = `
+import out from 'out';
+import local from './local';`;
+
+importList(input); // ['out', './local']
+importList();      // undefined ¯\_(ツ)_/¯
 ```
 
 ## API
 
-### importListFromString(input, [options])
+### importList(input)
 
 #### input
 
 *Required*  
 Type: `String`
 
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `Boolean`  
-Default: `false`
-
-Lorem ipsum.
+Your stringified JavaScript code in es2015.
 
 ## License
 
