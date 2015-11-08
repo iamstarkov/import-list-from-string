@@ -1,17 +1,13 @@
 import { parse } from 'acorn';
-import R from 'ramda';
+import { pipe, prop, map, path } from 'ramda';
 
-const importsList = R.pipe(
+const importList = pipe(
   string => parse(string, { ecmaVersion: 6, sourceType: 'module' }),
-  // R.prop('body'),
-  // R.head,
-  // R.prop('expression'),
-  R.identity
+  prop('body'),
+  map(path(['source', 'value']))
 )
 
 export default function importListFromString(input) {
   if (!input) return;
-  const res = importsList(input);
-  console.log(res);
-  return input;
+  return importList(input);
 };
