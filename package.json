@@ -42,7 +42,7 @@
     "rimraf": "*"
   },
   "dependencies": {
-    "acorn": "^2.5.2",
-    "ramda": "^0.18.0"
+    "acorn": "^3.0.4",
+    "ramda": "^0.20.0"
   }
 }
