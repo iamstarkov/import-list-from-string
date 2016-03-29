@@ -1,12 +1,18 @@
 import { parse } from 'acorn';
-import { pipe, prop, map, path } from 'ramda';
+import R from 'ramda';
 
-const importList = pipe(
+// contract :: String -> Constructor -> a
+const contract = R.curry((name, ctor, param) => R.unless(
+  R.is(ctor),
+  () => { throw new TypeError(`\`${name}\` should be \`${R.type(ctor())}\`, but got \`${R.type(param)}\``); }
+)(param));
+
+const importList = R.unary(R.pipe(
+  contract('input', String),
   string => parse(string, { ecmaVersion: 6, sourceType: 'module' }),
-  prop('body'),
-  map(path(['source', 'value'])));
+  R.prop('body'),
+  R.map(R.path(['source', 'value'])),
+  R.reject(R.isNil)
+));
 
-export default function importListFromString(input) {
-  if (!input) return;
-  return importList(input);
-};
+export default importList;
