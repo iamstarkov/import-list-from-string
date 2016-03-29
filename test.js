@@ -5,8 +5,7 @@ const input = `
 import out from 'out';
 import local from './local';
 
-console.log('yo');
-`;
+console.log('yo');`;
 
 it('should importListFromString', () =>
   deepEqual(importListFromString(input), ['out', './local']));
