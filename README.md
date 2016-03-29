@@ -18,10 +18,11 @@ import importList from 'import-list-from-string';
 
 const input = `
 import out from 'out';
-import local from './local';`;
+import local from './local';
+
+console.log('yo');`;
 
 importList(input); // ['out', './local']
-importList();      // undefined ¯\_(ツ)_/¯
 ```
 
 ## API
